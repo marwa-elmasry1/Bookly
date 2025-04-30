@@ -1,3 +1,4 @@
+import 'package:bookly/Core/constants.dart';
 import 'package:bookly/Core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +23,7 @@ class CustomPriceContainer extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             'Price\$',
-            style: TextStyles.textStyle16.copyWith(
-              color: const Color.fromARGB(255, 127, 53, 31),
-            ),
+            style: TextStyles.textStyle16.copyWith(color: kOrangeColor),
           ),
         ),
         Container(

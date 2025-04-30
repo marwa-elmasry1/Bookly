@@ -10,18 +10,27 @@ class SplashScreenBody extends StatefulWidget {
   State<SplashScreenBody> createState() => _SplashScreenBodyState();
 }
 
-class _SplashScreenBodyState extends State<SplashScreenBody> with TickerProviderStateMixin {
-
-  late AnimationController animationController ;
-  late Animation<Offset> animationText ;
-  late Animation<Offset> animationImage ;
+class _SplashScreenBodyState extends State<SplashScreenBody>
+    with TickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> animationText;
+  late Animation<Offset> animationImage;
 
   @override
   void initState() {
     super.initState();
-    animationController=AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    animationImage = Tween<Offset>(begin: const Offset(0, 9),end: Offset.zero).animate(animationController);
-    animationText = Tween<Offset>(begin: const Offset(0, -7),end: Offset.zero).animate(animationController);
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+    animationImage = Tween<Offset>(
+      begin: const Offset(0, 9),
+      end: Offset.zero,
+    ).animate(animationController);
+    animationText = Tween<Offset>(
+      begin: const Offset(0, -7),
+      end: Offset.zero,
+    ).animate(animationController);
     animationController.forward();
 
     Future.delayed(const Duration(seconds: 4), () {
@@ -39,19 +48,21 @@ class _SplashScreenBodyState extends State<SplashScreenBody> with TickerProvider
         children: [
           SlideTransition(
             position: animationImage,
-            child: Image.asset(logoPath,width: 200)),
-          const SizedBox(height: 6.0,),
+            child: Image.asset(logoPath, width: 200),
+          ),
+          const SizedBox(height: 6.0),
           SlideTransition(
             position: animationText,
-            child: Text('Read Books With Bookly....'))
+            child: Text('Read Books With Bookly....'),
+          ),
         ],
       ),
     );
   }
 
   @override
-void dispose() {
-  animationController.dispose();
-  super.dispose();
-}
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 }

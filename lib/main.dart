@@ -2,9 +2,9 @@ import 'package:bookly/Core/constants.dart';
 import 'package:bookly/Core/utils/app_route.dart';
 import 'package:bookly/Features/home/presentation/views/book_screen.dart';
 import 'package:bookly/Features/home/presentation/views/home_screen.dart';
-import'package:flutter/material.dart';
-void main(){
+import 'package:flutter/material.dart';
 
+void main() {
   runApp(const BooklyApp());
 }
 
@@ -14,11 +14,9 @@ class BooklyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       routerConfig: AppRoute.router,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor
-      ),
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
     );
   }
 }
@@ -31,4 +29,4 @@ debugShowCheckedModeBanner: false,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
     );
-*/ 
+*/

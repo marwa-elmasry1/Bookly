@@ -13,7 +13,7 @@ class HomeScreenBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomHomeAppbar(),
-        CustomListView(height: 210, width: 120,),
+        CustomListView(height: 210, width: 120),
         Padding(
           padding: const EdgeInsets.only(bottom: 10.0, top: 30, left: 10),
           child: Text('Best Seller .... ', style: TextStyles.textStyle14),

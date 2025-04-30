@@ -13,26 +13,21 @@ class BookScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-      CustomBookAppbar(),
-      SizedBox(
-        height: 15,
-      ),
-      CustomListViewItem(width: 130, height: 200),
-      SizedBox(height: 20,),
-      Text('Book Title', style: TextStyles.textStyle20,),
-      Text('Book Writers Names', style: TextStyles.textStyle14,),
-      RateView(
-        rateAlignment: Alignment.center,
-         height: 40),
-         CustomPriceContainer(),
-         Container(
-           margin: const EdgeInsets.all(8.0),
-           alignment: Alignment.topLeft,
-           child: Text('You Can Also Like...'),
-         ),
-         CustomListView(height: 150, width: 100,),
-    ],);
+        CustomBookAppbar(),
+        SizedBox(height: 15),
+        CustomListViewItem(width: 130, height: 200),
+        SizedBox(height: 20),
+        Text('Book Title', style: TextStyles.textStyle20),
+        Text('Book Writers Names', style: TextStyles.textStyle14),
+        RateView(rateAlignment: Alignment.center, height: 40),
+        CustomPriceContainer(),
+        Container(
+          margin: const EdgeInsets.all(8.0),
+          alignment: Alignment.topLeft,
+          child: Text('You Can Also Like...'),
+        ),
+        CustomListView(height: 150, width: 100),
+      ],
+    );
   }
 }
-
-

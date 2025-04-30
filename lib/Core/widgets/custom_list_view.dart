@@ -13,9 +13,10 @@ class CustomListView extends StatelessWidget {
       child: ListView.builder(
         itemCount: 5,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, state){
-          return CustomListViewItem(width: width, height: 210,);
-        }),
+        itemBuilder: (context, state) {
+          return CustomListViewItem(width: width, height: 210);
+        },
+      ),
     );
   }
 }
