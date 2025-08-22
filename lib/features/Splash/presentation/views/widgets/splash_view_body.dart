@@ -1,9 +1,8 @@
 import 'package:bookly/core/utils/constants.dart';
-import 'package:bookly/features/home_screen/presentation/views/home_view.dart';
-import 'package:bookly/features/splash_screen/presentation/views/widgets/sliding_text.dart';
+import 'package:bookly/core/utils/routes.dart';
+import 'package:bookly/features/Splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -47,26 +46,31 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(
-        () => HomeView(),
-        transition: Transition.leftToRight,
-        duration: Duration(milliseconds: 250),
-      );
+      // Get.to(
+      //   () => HomeView(),
+      //   transition: Transition.leftToRight,
+      //   duration: Duration(milliseconds: 250),
+      // );
+
+      GoRouter.of(context).push(Routes.kHomeViewPath);
     });
   }
 
   void initAnimation() {
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds:2),
     );
     animation = Tween<Offset>(
-      begin: Offset(-4, 9),
+      begin: Offset(-2, 12),
       end: Offset.zero,
     ).animate(animationController);
 
-    animation.addListener(() {
-      setState(() {});
-    });
+    // animation.addListener(() {
+    //   setState(() {});
+    // });
+
+    animationController.forward();
+
   }
 }
