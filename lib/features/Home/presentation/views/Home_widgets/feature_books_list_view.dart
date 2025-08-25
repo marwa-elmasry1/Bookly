@@ -3,14 +3,16 @@ import 'package:bookly/features/Home/presentation/views/Home_widgets/custom_list
 import 'package:flutter/material.dart';
 
 class FeatureBooksListView extends StatelessWidget {
-  const FeatureBooksListView({super.key});
+  const FeatureBooksListView({super.key, required this.height});
+
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10.0),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.28,
+        height: height,
         child: ListView.builder(
           itemCount: 7,
           scrollDirection: Axis.horizontal,
