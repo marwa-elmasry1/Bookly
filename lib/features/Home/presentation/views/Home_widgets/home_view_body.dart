@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/Home/presentation/views/Home_widgets/best_seller_list_view.dart';
+import 'package:bookly/features/Home/presentation/views/Home_widgets/book_list_view.dart';
 import 'package:bookly/features/Home/presentation/views/Home_widgets/custom_app_bar.dart';
 import 'package:bookly/features/Home/presentation/views/Home_widgets/feature_books_list_view.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,7 @@ return CustomScrollView(
     ),
     SliverFillRemaining(
       child: 
-       BestSellerListView(),
+       BookListView(),
     )
   ],
 );
