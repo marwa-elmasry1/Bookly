@@ -1,4 +1,3 @@
-
 import 'package:bookly/features/Home/presentation/views/Home_widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -16,12 +15,14 @@ class FeatureBooksListView extends StatelessWidget {
         child: ListView.builder(
           itemCount: 7,
           scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index){
-          return  CustomListViewItem(
-            width: 110,
-            height: MediaQuery.of(context).size.height * 0.3,
-           padding: const EdgeInsets.only(left: 8.0),);
-        }),
+          itemBuilder: (context, index) {
+            return CustomListViewItem(
+              width: 110,
+              height: MediaQuery.of(context).size.height * 0.3,
+              padding: const EdgeInsets.only(left: 8.0),
+            );
+          },
+        ),
       ),
     );
   }

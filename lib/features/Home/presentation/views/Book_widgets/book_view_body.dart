@@ -9,20 +9,19 @@ class BookViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      slivers:[
+      slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-          CustomBookAppBar(),
-          BookDetailSection(),
-         SimilerBooksSection()
-          ],
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomBookAppBar(),
+              BookDetailSection(),
+              SimilerBooksSection(),
+            ],
+          ),
         ),
-        )
-      ] 
+      ],
     );
-
   }
 }

@@ -10,15 +10,12 @@ class Rating extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(FontAwesomeIcons.solidStar,
-        color: Color(0xffFFDD4F),
-        size: 13,
-        ),
+        Icon(FontAwesomeIcons.solidStar, color: Color(0xffFFDD4F), size: 13),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5.0),
-          child: Text('4.5',style: Styles.textStyle14,),
+          child: Text('4.5', style: Styles.textStyle14),
         ),
-        Text('(259)',style: Styles.textStyle12,)
+        Text('(259)', style: Styles.textStyle12),
       ],
     );
   }

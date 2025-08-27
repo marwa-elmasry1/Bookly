@@ -59,7 +59,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initAnimation() {
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds:2),
+      duration: Duration(seconds: 2),
     );
     animation = Tween<Offset>(
       begin: Offset(-2, 12),
@@ -71,6 +71,5 @@ class _SplashViewBodyState extends State<SplashViewBody>
     // });
 
     animationController.forward();
-
   }
 }

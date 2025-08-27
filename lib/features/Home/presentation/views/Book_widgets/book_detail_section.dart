@@ -12,19 +12,19 @@ class BookDetailSection extends StatelessWidget {
     return Column(
       children: [
         CustomListViewItem(
-    height: MediaQuery.of(context).size.height * .34,
-    padding: EdgeInsets.only(top: 15, bottom: 20),
-    width: MediaQuery.of(context).size.width * .4,
+          height: MediaQuery.of(context).size.height * .34,
+          padding: EdgeInsets.only(top: 15, bottom: 20),
+          width: MediaQuery.of(context).size.width * .4,
         ),
         Text(
-    'Harry Boter And The Global of Firefg',
-    maxLines: 2,
-    overflow: TextOverflow.ellipsis,
-    style: Styles.textStyle18,
+          'Harry Boter And The Global of Firefg',
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: Styles.textStyle18,
         ),
         Padding(
-    padding: const EdgeInsets.symmetric(vertical: 5.0),
-    child: Text('J.K Rowling', style: Styles.textStyle12),
+          padding: const EdgeInsets.symmetric(vertical: 5.0),
+          child: Text('J.K Rowling', style: Styles.textStyle12),
         ),
         Rating(),
         BookAction(),

@@ -2,10 +2,7 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class SlidingText extends StatelessWidget {
-  const SlidingText({
-    super.key,
-    required this.animation,
-  });
+  const SlidingText({super.key, required this.animation});
 
   final Animation<Offset> animation;
 
@@ -15,12 +12,14 @@ class SlidingText extends StatelessWidget {
       animation: animation,
       builder: (context, _) {
         return SlideTransition(
-          position:animation ,
-          child: Text('Read More, Explore More',
-          style: Styles.textStyle12,
-          textAlign: TextAlign.center,),
+          position: animation,
+          child: Text(
+            'Read More, Explore More',
+            style: Styles.textStyle12,
+            textAlign: TextAlign.center,
+          ),
         );
-      }
+      },
     );
   }
 }

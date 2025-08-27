@@ -9,7 +9,10 @@ class CustomSearchTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: 'Search for a book ..',
-        suffixIcon: IconButton(onPressed: () {}, icon: Icon(FontAwesomeIcons.magnifyingGlass,size: 22,)),
+        suffixIcon: IconButton(
+          onPressed: () {},
+          icon: Icon(FontAwesomeIcons.magnifyingGlass, size: 22),
+        ),
         enabledBorder: buildOutLineBorder(),
         focusedBorder: buildOutLineBorder(),
       ),
