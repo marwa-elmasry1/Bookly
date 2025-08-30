@@ -7,7 +7,7 @@ import 'package:bookly/features/Home/data/Repos/home_repo_impl.dart';
 
 final getIt = GetIt.instance;
 
-void setup() {
+void setupServiceLocator() {
   getIt.registerSingleton<ApiServices>(ApiServices(Dio()));
   getIt.registerSingleton<HomeRepoImpl>(
     HomeRepoImpl(getIt.get<ApiServices>()));
