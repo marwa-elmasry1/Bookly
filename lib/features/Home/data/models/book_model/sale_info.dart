@@ -8,7 +8,7 @@ class SaleInfo extends Equatable {
   final String? country;
   final String? saleability;
   final bool? isEbook;
-  final ListPrice? listPrice;
+  final ListPrice listPrice;
   final RetailPrice? retailPrice;
   final String? buyLink;
   final List<Offer>? offers;
@@ -17,7 +17,7 @@ class SaleInfo extends Equatable {
     this.country,
     this.saleability,
     this.isEbook,
-    this.listPrice,
+   required this.listPrice,
     this.retailPrice,
     this.buyLink,
     this.offers,
@@ -27,10 +27,9 @@ class SaleInfo extends Equatable {
     country: json['country']?.toString(),
     saleability: json['saleability']?.toString(),
     isEbook: json['isEbook']?.toString().contains("true"),
-    listPrice:
-        json['listPrice'] == null
-            ? null
-            : ListPrice.fromJson(Map<String, dynamic>.from(json['listPrice'])),
+    listPrice:json['listPrice'] != null
+          ? ListPrice.fromJson(Map<String, dynamic>.from(json['listPrice']))
+          : ListPrice(amount: 19, currencyCode: "\$"),
     retailPrice:
         json['retailPrice'] == null
             ? null
@@ -48,7 +47,7 @@ class SaleInfo extends Equatable {
     if (country != null) 'country': country,
     if (saleability != null) 'saleability': saleability,
     if (isEbook != null) 'isEbook': isEbook,
-    if (listPrice != null) 'listPrice': listPrice?.toJson(),
+    'listPrice': listPrice.toJson(),
     if (retailPrice != null) 'retailPrice': retailPrice?.toJson(),
     if (buyLink != null) 'buyLink': buyLink,
     if (offers != null) 'offers': offers?.map((e) => e.toJson()).toList(),

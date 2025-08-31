@@ -9,13 +9,14 @@ class CustomButton extends StatelessWidget {
     required this.text,
     required this.borderRadius,
     this.height,
-    this.width,
+    this.width, required this.onPressed,
   });
 
   final Color backgroundColor;
   final Color textColor;
   final String text;
   final BorderRadius borderRadius;
+  final Function onPressed;
 
   final double? width;
   final double? height;

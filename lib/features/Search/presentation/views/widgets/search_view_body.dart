@@ -13,27 +13,29 @@ class SearchViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomSearchTextField(),
-          Expanded(child: SearchResultsList()),
+          Expanded(child: SizedBox()
+          //  SearchResultsList()
+           ),
         ],
       ),
     );
   }
 }
 
-class SearchResultsList extends StatelessWidget {
-  const SearchResultsList({super.key});
+// class SearchResultsList extends StatelessWidget {
+//   const SearchResultsList({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.zero,
-      itemCount: 7,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.only(left: 10.0, top: 8.0),
-          child: BookListViewItem(),
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       padding: EdgeInsets.zero,
+//       itemCount: 7,
+//       itemBuilder: (context, index) {
+//         return Padding(
+//           padding: const EdgeInsets.only(left: 10.0, top: 8.0),
+//           child: BookListViewItem(bookDetail: null,),
+//         );
+//       },
+//     );
+//   }
+// }

@@ -6,9 +6,9 @@ import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
-  final String? title;
+  final String title;
   final String? subtitle;
-  final List<String>? authors;
+  final List<String> authors;
   final String? publisher;
   final String? publishedDate;
   final String? description;
@@ -23,14 +23,14 @@ class VolumeInfo extends Equatable {
   final PanelizationSummary? panelizationSummary;
   final ImageLinks imageLinks;
   final String? language;
-  final String? previewLink;
+  final String previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
 
   const VolumeInfo({
-    this.title,
+    required this.title,
     this.subtitle,
-    this.authors,
+    required this.authors,
     this.publisher,
     this.publishedDate,
     this.description,
@@ -45,15 +45,18 @@ class VolumeInfo extends Equatable {
     this.panelizationSummary,
     required this.imageLinks,
     this.language,
-    this.previewLink,
+    required this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
-    title: json['title']?.toString(),
+    title: json['title'],
     subtitle: json['subtitle']?.toString(),
-    authors: List<String>.from(json['authors'] ?? []),
+    authors:(json['authors'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toList() ??
+          ["Unknown Author"],
     publisher: json['publisher']?.toString(),
     publishedDate: json['publishedDate']?.toString(),
     description: json['description']?.toString(),
@@ -81,19 +84,26 @@ class VolumeInfo extends Equatable {
             : PanelizationSummary.fromJson(
               Map<String, dynamic>.from(json['panelizationSummary']),
             ),
-    imageLinks: ImageLinks.fromJson(
-      Map<String, dynamic>.from(json['imageLinks']),
-    ),
+    imageLinks: json['imageLinks'] != null
+          ? ImageLinks.fromJson(
+              Map<String, dynamic>.from(json['imageLinks']),
+            )
+          : ImageLinks(
+              smallThumbnail:
+                  "https://tse4.mm.bing.net/th/id/OIP.wd-Dq9mV9MAr4h8imSlZOwHaL1?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+              thumbnail:
+                  "https://tse4.mm.bing.net/th/id/OIP.wd-Dq9mV9MAr4h8imSlZOwHaL1?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+            ),
     language: json['language']?.toString(),
-    previewLink: json['previewLink']?.toString(),
+    previewLink: json['previewLink'] == null ? 'https://books.google.com/' : json['previewLink'].toString(),
     infoLink: json['infoLink']?.toString(),
     canonicalVolumeLink: json['canonicalVolumeLink']?.toString(),
   );
 
   Map<String, dynamic> toJson() => {
-    if (title != null) 'title': title,
+     'title': title,
     if (subtitle != null) 'subtitle': subtitle,
-    if (authors != null) 'authors': authors,
+     'authors': authors,
     if (publisher != null) 'publisher': publisher,
     if (publishedDate != null) 'publishedDate': publishedDate,
     if (description != null) 'description': description,
@@ -109,7 +119,7 @@ class VolumeInfo extends Equatable {
     if (contentVersion != null) 'contentVersion': contentVersion,
     if (panelizationSummary != null)
       'panelizationSummary': panelizationSummary?.toJson(),
-    if (imageLinks != null) 'imageLinks': imageLinks?.toJson(),
+     'imageLinks': imageLinks.toJson(),
     if (language != null) 'language': language,
     if (previewLink != null) 'previewLink': previewLink,
     if (infoLink != null) 'infoLink': infoLink,

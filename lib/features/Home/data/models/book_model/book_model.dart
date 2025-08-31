@@ -11,7 +11,7 @@ class BookModel extends Equatable {
   final String? etag;
   final String? selfLink;
   final VolumeInfo volumeInfo;
-  final SaleInfo? saleInfo;
+  final SaleInfo saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
 
@@ -21,7 +21,7 @@ class BookModel extends Equatable {
     this.etag,
     this.selfLink,
    required this.volumeInfo,
-    this.saleInfo,
+    required this.saleInfo,
     this.accessInfo,
     this.searchInfo,
   });
@@ -34,10 +34,7 @@ class BookModel extends Equatable {
     volumeInfo:VolumeInfo.fromJson(
               Map<String, dynamic>.from(json['volumeInfo']),
             ),
-    saleInfo:
-        json['saleInfo'] == null
-            ? null
-            : SaleInfo.fromJson(Map<String, dynamic>.from(json['saleInfo'])),
+    saleInfo: SaleInfo.fromJson(Map<String, dynamic>.from(json['saleInfo'])),
     accessInfo:
         json['accessInfo'] == null
             ? null

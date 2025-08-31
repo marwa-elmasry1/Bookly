@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Rating extends StatelessWidget {
-  const Rating({super.key});
+  const Rating({super.key, required this.pageCount});
+
+  final String pageCount;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class Rating extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 5.0),
           child: Text('4.5', style: Styles.textStyle14),
         ),
-        Text('(259)', style: Styles.textStyle12),
+        Text('($pageCount)', style: Styles.textStyle12),
       ],
     );
   }

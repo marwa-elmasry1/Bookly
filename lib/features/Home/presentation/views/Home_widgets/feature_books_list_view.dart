@@ -29,7 +29,7 @@ class FeatureBooksListView extends StatelessWidget {
                   width: 110,
                   height: MediaQuery.of(context).size.height * 0.3,
                   padding: const EdgeInsets.only(left: 8.0),
-                   imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                   bookModel: state.books[index],
                 );
               },
             ),
