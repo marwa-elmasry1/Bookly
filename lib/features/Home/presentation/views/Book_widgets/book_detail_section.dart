@@ -14,7 +14,7 @@ class BookDetailSection extends StatelessWidget {
         CustomListViewItem(
           height: MediaQuery.of(context).size.height * .34,
           padding: EdgeInsets.only(top: 15, bottom: 20),
-          width: MediaQuery.of(context).size.width * .4,
+          width: MediaQuery.of(context).size.width * .4, imageUrl: 'https://tse4.mm.bing.net/th/id/OIP.wd-Dq9mV9MAr4h8imSlZOwHaL1?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
         ),
         Text(
           'Harry Boter And The Global of Firefg',

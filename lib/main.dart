@@ -22,18 +22,11 @@ class Bookly extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    //   home: SearchView(),
-    //   debugShowCheckedModeBanner: false,
-    //   theme: ThemeData.dark().copyWith(scaffoldBackgroundColor:kPrimaryColor,
-    //   textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)),
-    // );
-    //////////////////////////////////
     return MultiBlocProvider(
       providers: [
         BlocProvider(
           create:
-              (context) => FeatureBookCubit(getIt.get<HomeRepoImpl>()),
+              (context) => FeatureBookCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create:
@@ -53,3 +46,12 @@ class Bookly extends StatelessWidget {
     );
   }
 }
+
+
+    // return MaterialApp(
+    //   home: SearchView(),
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData.dark().copyWith(scaffoldBackgroundColor:kPrimaryColor,
+    //   textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)),
+    // );
+    //////////////////////////////////

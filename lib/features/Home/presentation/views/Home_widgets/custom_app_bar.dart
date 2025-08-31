@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image(image: AssetImage(logo), width: 70),
+          Image(image: AssetImage(logo), width: 90),
           IconButton(
             onPressed: () {
               GoRouter.of(context).push(Routes.kSearchViewPath);
