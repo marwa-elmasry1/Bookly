@@ -3,22 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BookAction extends StatelessWidget {
-  const BookAction({super.key, required this.bookPrice, required this.bookLink});
+  const BookAction({
+    super.key,
+    required this.bookPrice,
+    required this.bookLink,
+  });
 
   final String bookPrice;
   final String bookLink;
-
-    Future<void> _launchBookLink(BuildContext context, String url) async {
-    final Uri uri = Uri.tryParse(url.isNotEmpty ? url : 'https://books.google.com')!;
-
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("⚠️ Couldn't open the book preview")),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +27,8 @@ class BookAction extends StatelessWidget {
               topLeft: Radius.circular(12),
               bottomLeft: Radius.circular(12),
             ),
-            width: 100, onPressed: (){},
+            width: 100,
+            onPressed: () {},
           ),
           CustomButton(
             backgroundColor: Color(0xffEF5235),
@@ -44,8 +37,17 @@ class BookAction extends StatelessWidget {
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(12),
               bottomRight: Radius.circular(12),
-            ), onPressed: ()async{
-              await _launchBookLink(context, bookLink);
+            ),
+            onPressed: () async {
+              final Uri uri = Uri.parse(bookLink);
+
+              if (await canLaunchUrl(uri)) {
+                await launchUrl(uri, mode: LaunchMode.externalApplication);
+              } else {
+                return SnackBar(
+                    content: Text(" Couldn't open the book preview"),
+                );
+              }
             },
           ),
         ],
@@ -53,3 +55,5 @@ class BookAction extends StatelessWidget {
     );
   }
 }
+// Uri.tryParse(
+//bookLink ?? 'https://books.google.com');
