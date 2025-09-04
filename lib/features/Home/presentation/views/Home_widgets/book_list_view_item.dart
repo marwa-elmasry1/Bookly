@@ -46,7 +46,7 @@ class BookListViewItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Price:(${bookDetail.saleInfo.listPrice.amount}\$)',
+                      '(${bookDetail.saleInfo.listPrice.amount}\$)',
                       style: Styles.textStyle16.copyWith(
                         fontWeight: FontWeight.w900,
                       ),

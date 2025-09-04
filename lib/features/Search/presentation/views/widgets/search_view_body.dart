@@ -1,41 +1,30 @@
-import 'package:bookly/features/Home/presentation/views/Home_widgets/book_list_view_item.dart';
-import 'package:bookly/features/Search/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:bookly/features/Search/presentation/manager/searching_cubit/search_cubit.dart';
+import 'package:bookly/features/Search/presentation/views/widgets/search_result_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
+class SearchView extends StatelessWidget {
+  const SearchView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomSearchTextField(),
-          Expanded(child: SizedBox()
-          //  SearchResultsList()
-           ),
-        ],
-      ),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: "Search for books...",
+              border: OutlineInputBorder(),
+              prefixIcon: Icon(Icons.search),
+            ),
+            onSubmitted: (value) {
+              context.read<SearchCubit>().searchBooks(value);
+            },
+          ),
+        ),
+        Expanded(child: SearchResultsList()), 
+      ],
     );
   }
 }
-
-// class SearchResultsList extends StatelessWidget {
-//   const SearchResultsList({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       padding: EdgeInsets.zero,
-//       itemCount: 7,
-//       itemBuilder: (context, index) {
-//         return Padding(
-//           padding: const EdgeInsets.only(left: 10.0, top: 8.0),
-//           child: BookListViewItem(bookDetail: null,),
-//         );
-//       },
-//     );
-//   }
-// }

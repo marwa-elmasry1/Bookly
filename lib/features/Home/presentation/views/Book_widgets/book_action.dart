@@ -44,8 +44,10 @@ class BookAction extends StatelessWidget {
               if (await canLaunchUrl(uri)) {
                 await launchUrl(uri, mode: LaunchMode.externalApplication);
               } else {
-                return SnackBar(
-                    content: Text(" Couldn't open the book preview"),
+                return ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Couldn't open the book preview"),
+                  ),
                 );
               }
             },
@@ -55,5 +57,6 @@ class BookAction extends StatelessWidget {
     );
   }
 }
+
 // Uri.tryParse(
 //bookLink ?? 'https://books.google.com');
